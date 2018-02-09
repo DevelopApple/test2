@@ -1,0 +1,82 @@
+<html lang="zh-cn"><head>
+    <meta charset="UTF-8">
+    <title>+1社区APP下载</title>
+    <meta name="viewport" content="minimal-ui,width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        img {
+            /*height: 100%;*/
+            width: 100%;
+        }
+
+        button {
+            position: absolute;
+            z-index: 9998;
+            border: none;
+            width: 40%;
+            height: 38px;
+            bottom: 5%;
+            left: 30%;
+            border:1px solid solid;
+            background: rgb(189,21,34);
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+    <script type="text/javascript">
+        var BUTTON_TEXT = 'iphone';
+        var isiOS = false,INTERFVAL=2000,DONW_URL="http://a.app.qq.com/o/simple.jsp?pkgname=lilun.com.pensionlife";
+        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+            //alert(navigator.userAgent);
+            isiOS = true;
+        } else if (/(Android)/i.test(navigator.userAgent)) {
+            //alert(navigator.userAgent);
+            isiOS = false;
+        } else {
+            isiOS = false;
+        };
+
+        function ChangeBtnText(text) {
+            BUTTON_TEXT = text+' 下载';
+            document.getElementById('download_btn').innerHTML = BUTTON_TEXT;
+        }
+
+        function init() {
+            ChangeBtnText(isiOS ? "iphone" : "android");
+        }
+
+
+        function downClick() {
+            window.location.href=DONW_URL;
+        }
+
+        setTimeout(function(){
+            window.location.href=DONW_URL;
+        },INTERFVAL);
+    </script>
+
+</head>
+
+
+<body onload="init()">
+
+<button onclick="downClick()" id="download_btn">app 下载</button>
+<img src="./image/pension.jpg">
+</body>
+</html>
